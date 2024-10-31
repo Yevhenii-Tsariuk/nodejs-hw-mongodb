@@ -25,10 +25,11 @@ const contactSchema = new Schema(
     },
   },
   {
+    versionKey: false, 
     timestamps: true,
   },
 );
 
-const ContactCollection = model('contacts', contactSchema);
+export const ContactCollection = model('contacts', contactSchema);
 
-export default ContactCollection;
+// export default ContactCollection;
