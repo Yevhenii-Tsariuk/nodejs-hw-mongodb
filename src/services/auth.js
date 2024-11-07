@@ -48,7 +48,7 @@ export const loginUser = async (payload) => {
 };
 
 export const logoutUser = async (sessionId) => {
-  await SessionsCollections.findOne({ _id: sessionId });
+  await SessionsCollections.deleteOne({ _id: sessionId });
 };
 
 export const createSession = () => {
