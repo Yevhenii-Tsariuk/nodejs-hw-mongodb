@@ -9,6 +9,8 @@ import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 import { parseSortParams } from '../utils/parseSortParams.js';
 import { parseFilterParams } from '../utils/parseFilterParams.js';
 import { saveFileToUploadDir } from '../utils/saveFileToUploadDir.js';
+import { saveFileToCloudinary } from '../utils/saveFileToCloudinary.js';
+import { env } from '../utils/env.js';
 
 import createHttpError from 'http-errors';
 
@@ -78,13 +80,14 @@ export const patchContactController = async (req, res, next) => {
   let photoUrl;
 
   if (photo) {
-    photoUrl = await saveFileToUploadDir(photo);
+    if(env('ENABLE_CLOUDINARY') === 'true'){
+      req.body.photo = await saveFileToCloudinary(photo);
+    }else{req.body.photo = await saveFileToUploadDir(photo);}
   }
 
-  const result = await updateContact(contactId, userId, {
-    ...req.body,
-    photo: photoUrl,
-  });
+  const result = await updateContact(contactId, req.body, userId, 
+    {photo: photoUrl}
+  );
 
   if (!result) {
     next(createHttpError(404, 'Contact not found'));
