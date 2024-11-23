@@ -13,16 +13,9 @@ parameters:
     schema:
       type: string
       example: '65e4decdd286b30065d54af9'
-  - in: header
-    name: Authorization
-    required: true
-    description: The token issued to the current user..
-    schema:
-      type: string
-      example: 'rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb'
 requestBody:
   content:
-    application/json:
+    multipart/form-data:
       schema:
         type: object
         properties:
@@ -34,6 +27,23 @@ requestBody:
             description: "Contact's phone number"
             type: string
             example: '+3809732507799'
+          email:
+            description: "Contact's email"
+            type: string
+            example: billMor555@gmail.com
+          contactType:
+            description: "Contact's type"
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: 'personal'
+          isFavourite:
+            description: 'true || false'
+            type: boolean
+            example: true
+          photo:
+            description: "Link to contact's photo"
+            type: string
+            example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
 responses:
   '200':
     description: 'Successfully patched a contact'

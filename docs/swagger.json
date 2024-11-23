@@ -51,16 +51,6 @@
               "type": "string",
               "example": "65e4decdd286b30065d54af9"
             }
-          },
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "description": "The token issued to the current user..",
-            "schema": {
-              "type": "string",
-              "example": "rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb"
-            }
           }
         ],
         "responses": {
@@ -123,21 +113,11 @@
               "type": "string",
               "example": "65e4decdd286b30065d54af9"
             }
-          },
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "description": "The token issued to the current user..",
-            "schema": {
-              "type": "string",
-              "example": "rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb"
-            }
           }
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -150,6 +130,31 @@
                     "description": "Contact's phone number",
                     "type": "string",
                     "example": "+3809732507799"
+                  },
+                  "email": {
+                    "description": "Contact's email",
+                    "type": "string",
+                    "example": "billMor555@gmail.com"
+                  },
+                  "contactType": {
+                    "description": "Contact's type",
+                    "type": "string",
+                    "enum": [
+                      "work",
+                      "home",
+                      "personal"
+                    ],
+                    "example": "personal"
+                  },
+                  "isFavourite": {
+                    "description": "true || false",
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "photo": {
+                    "description": "Link to contact's photo",
+                    "type": "string",
+                    "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
                   }
                 }
               }
@@ -216,16 +221,6 @@
               "type": "string",
               "example": "65e4decdd286b30065d54af9"
             }
-          },
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "description": "The token issued to the current user..",
-            "schema": {
-              "type": "string",
-              "example": "rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb"
-            }
           }
         ],
         "responses": {
@@ -255,16 +250,6 @@
           }
         ],
         "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "description": "The token issued to the current user..",
-            "schema": {
-              "type": "string",
-              "example": "rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb"
-            }
-          },
           {
             "in": "query",
             "name": "page",
@@ -414,18 +399,6 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "description": "The token issued to the current user..",
-            "schema": {
-              "type": "string",
-              "example": "rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -461,17 +434,13 @@
                       "work",
                       "home",
                       "personal"
-                    ]
+                    ],
+                    "example": "personal"
                   },
                   "isFavourite": {
                     "description": "true || false",
                     "type": "boolean",
                     "example": true
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   },
                   "photo": {
                     "description": "Contact's photo",
@@ -857,18 +826,6 @@
         "security": [
           {
             "bearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "required": true,
-            "description": "The token issued to the current user..",
-            "schema": {
-              "type": "string",
-              "example": "rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb"
-            }
           }
         ],
         "responses": {
@@ -1408,17 +1365,17 @@
           "name": {
             "description": "Contact's name",
             "type": "string",
-            "example": "John Doe"
+            "example": "Bill Morison"
           },
           "phoneNumber": {
             "description": "Contact's phone number",
             "type": "string",
-            "example": "+380000000000"
+            "example": "+3809732507799"
           },
           "email": {
             "description": "Contact's email",
             "type": "string",
-            "example": "djohn555@gmail.com"
+            "example": "billMor555@gmail.com"
           },
           "contactType": {
             "description": "Contact's type",
@@ -1437,7 +1394,7 @@
           "userId": {
             "description": "Contact's user id",
             "type": "string",
-            "example": "65e4decdd286b30065d54af9"
+            "example": "65e4decdd235b30065d54ju7"
           },
           "photo": {
             "description": "Link to contact's photo",

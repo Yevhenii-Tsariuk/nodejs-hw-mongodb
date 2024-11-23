@@ -13,13 +13,6 @@ parameters:
     schema:
       type: string
       example: '65e4decdd286b30065d54af9'
-  - in: header
-    name: Authorization
-    required: true
-    description: The token issued to the current user..
-    schema:
-      type: string
-      example: 'rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb'
 responses:
   '200':
     description: 'Successfully found contact with id!'

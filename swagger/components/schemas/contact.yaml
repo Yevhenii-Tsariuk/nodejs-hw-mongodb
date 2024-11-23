@@ -13,15 +13,15 @@ properties:
   name:
     description: "Contact's name"
     type: string
-    example: 'John Doe'
+    example: 'Bill Morison'
   phoneNumber:
     description: "Contact's phone number"
     type: string
-    example: '+380000000000'
+    example: '+3809732507799'
   email:
     description: "Contact's email"
     type: string
-    example: djohn555@gmail.com
+    example: billMor555@gmail.com
   contactType:
     description: "Contact's type"
     type: string
@@ -33,7 +33,7 @@ properties:
   userId:
     description: "Contact's user id"
     type: string
-    example: 65e4decdd286b30065d54af9
+    example: 65e4decdd235b30065d54ju7
   photo:
     description: "Link to contact's photo"
     type: string

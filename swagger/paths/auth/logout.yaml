@@ -5,14 +5,6 @@ operationId: LogoutUser
 description: 'Logout user'
 security:
   - bearerAuth: []
-parameters:
-  - in: header
-    name: Authorization
-    required: true
-    description: The token issued to the current user..
-    schema:
-      type: string
-      example: 'rV3oW/GjUR5e6i5btw+3ayBqXuMDf5iOufGxffcb'
 responses:
         '204':
           description: 'No content'
